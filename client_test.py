@@ -25,6 +25,18 @@ class ClientTest(unittest.TestCase):
 
   """ ------------ Add more unit tests ------------ """
 
+  def test_getRatio_calculateRatio(self):
+    prices=[{'price_a':0, 'price_b':119.2}, {'price_a':129.2, 'price_b':0}]
+
+    """-------------------assertion-----------------"""
+    for price in prices:
+      result = getRatio(price['price_a'], price['price_b'])
+      if price['price_b']==0:
+        expected=None
+      else:
+        expected = price['price_a']/price['price_b']
+
+    self.assertEqual(result, expected)
 
 
 if __name__ == '__main__':
